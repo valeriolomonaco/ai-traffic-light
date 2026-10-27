@@ -3,6 +3,8 @@
 A small desk lamp that shows what Claude Code is doing, so you can look away from the screen
 and still know when it needs you.
 
+![The four states of the lamp](docs/images/lamp-states.svg)
+
 | Lamp | Screen | Meaning |
 |---|---|---|
 | Steady green | `WORKING` | Claude Code is busy on your prompt. |

@@ -3,20 +3,87 @@
   "author": "valeriolomonaco",
   "editor": "wokwi",
   "parts": [
-    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
-    { "type": "wokwi-led-ring", "id": "ring", "top": -240, "left": -40, "attrs": { "pixels": "12" } },
-    { "type": "board-ssd1306", "id": "oled", "top": -120, "left": 220, "attrs": { "i2cAddress": "0x3c" } }
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led-ring",
+      "id": "ring",
+      "top": 40,
+      "left": -175,
+      "attrs": {
+        "pixels": "12"
+      }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": 70,
+      "left": 170,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    }
   ],
   "connections": [
-    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
-    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
-    [ "ring:GND", "esp:GND.1", "black", [] ],
-    [ "ring:VCC", "esp:VIN", "red", [] ],
-    [ "ring:DIN", "esp:D13", "green", [] ],
-    [ "oled:GND", "esp:GND.2", "black", [] ],
-    [ "oled:VCC", "esp:3V3", "red", [] ],
-    [ "oled:SCL", "esp:D22", "blue", [] ],
-    [ "oled:SDA", "esp:D21", "orange", [] ]
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "ring:GND",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "ring:VCC",
+      "esp:VIN",
+      "red",
+      []
+    ],
+    [
+      "ring:DIN",
+      "esp:D13",
+      "green",
+      []
+    ],
+    [
+      "oled:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "oled:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "oled:SCL",
+      "esp:D22",
+      "blue",
+      []
+    ],
+    [
+      "oled:SDA",
+      "esp:D21",
+      "orange",
+      []
+    ]
   ],
   "dependencies": {}
 }

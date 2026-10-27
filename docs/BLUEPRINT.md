@@ -99,7 +99,7 @@ Settings at the top of the sketch:
 | Ring data pin | 6 | 13 |
 | Number of LEDs | 16 | 12 |
 | Serial speed | 9600 | 9600 |
-| Ring brightness | 80 of 255 | 80 of 255 |
+| Ring brightness | 150 of 255 | 150 of 255 |
 
 Change the number of LEDs if your ring differs. That single number is the only change for a 12 or
 16 LED ring. The serial speed stays at 9600 on both boards, because on the Nano faster speeds can

@@ -3,6 +3,8 @@
 This guide takes you from an empty desk to a finished lamp on top of it. It assumes no electronics
 experience and needs no soldering. Plan on a weekend, split across a few short sessions.
 
+![The four states of the finished lamp](images/lamp-states.svg)
+
 | Stage | What you do | Time |
 |---|---|---|
 | 0 | Try the circuit in the Wokwi simulator | 30 min |
@@ -24,6 +26,24 @@ Before spending anything, run the circuit in the free Wokwi simulator, see
 parts below. If the simulated ring and screen respond to `G test`, `Y test` and `R test`, the real
 device will behave the same way.
 
+This is what the loaded project looks like, with the code on the left and the circuit on the right:
+
+![The lamp project loaded in Wokwi](images/simulation/wokwi-esp32-project.png)
+
+And this is what each command does in the simulator. The serial monitor at the bottom shows the
+board's `OK` reply to each line.
+
+| Typed in the serial monitor | Result |
+|---|---|
+| nothing yet, just started | ![Idle](images/simulation/esp32-1-idle.png) |
+| `G athlete paper` | ![Working](images/simulation/esp32-2-working.png) |
+| `Y athlete paper` | ![Waiting](images/simulation/esp32-3-waiting.png) |
+| `R veteran paper` | ![Ready](images/simulation/esp32-4-ready.png) |
+| `O` | ![Off](images/simulation/esp32-5-off.png) |
+
+The simulator draws the LEDs darker than real ones, and yellow comes out orange-brown.
+A real ring at the same setting looks clearly yellow.
+
 ---
 
 ## Stage 1. Parts to buy
@@ -40,6 +60,31 @@ device will behave the same way.
 
 **Total: about 30 to 35 EUR** at AZ-Delivery or Amazon.it. On AliExpress the same parts cost about
 half, with two to four weeks of delivery.
+
+### What each part looks like
+
+The drawings below show what to look for. Real boards vary in colour and small details, but the
+printed pin labels are always the same.
+
+**1. ESP32 DevKit V1 board.** About 5 cm long, with 15 pins on each side and a USB socket at one end.
+
+![ESP32 DevKit V1](images/esp32-devkit-v1.svg)
+
+**2. WS2812B LED ring.** A flat ring of 12 small square LEDs, with 4 pads on the back.
+
+![WS2812B LED ring](images/led-ring.svg)
+
+**3. OLED screen.** About 2.7 cm wide, with 4 pins along the top edge.
+
+![SSD1306 OLED screen](images/oled-ssd1306.svg)
+
+**4. Jumper wires.** Coloured wires with a black plastic socket at each end.
+
+![Female to female jumper wires](images/jumper-wires.svg)
+
+**5. USB cable.** It must carry data, not only power.
+
+![USB data cable](images/usb-cable.svg)
 
 **The LED ring is the one part that may need soldering.** Most rings arrive with three bare metal pads.
 Pick one of these:
@@ -121,6 +166,11 @@ percentage starts, then let go.
 
 **Always unplug the USB cable before changing wires.**
 
+Here is the complete wiring you will have at the end of stage 5. This stage does the screen part, on
+the right of the drawing.
+
+![Complete wiring](images/wiring.svg)
+
 Connect 4 female-to-female jumpers from the screen to the board:
 
 | Screen pin | ESP32 pin | Suggested wire colour |
@@ -149,7 +199,8 @@ If the screen stays black:
 
 ## Stage 5. Connect and test the LED ring
 
-Unplug the USB cable, then connect the ring with 3 wires:
+Unplug the USB cable, then connect the ring with 3 wires. This is the left part of the wiring drawing
+in stage 4.
 
 | Ring pad | ESP32 pin | Suggested wire colour |
 |---|---|---|
@@ -171,7 +222,7 @@ Monitor type:
 | `O` | turn off | IDLE |
 
 If your ring has a different number of LEDs, change `RING_LEDS` in the sketch and upload again.
-If the colours look too strong, lower `RING_BRIGHTNESS`. At the default value the ring draws well under
+If the colours look too strong, lower `RING_BRIGHTNESS` from its default of 150. At the default value the ring draws well under
 the 500 mA a USB port can supply.
 
 **Close the Serial Monitor when you are done.** Only one program can use the port at a time, and the

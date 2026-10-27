@@ -31,7 +31,7 @@ const uint16_t RING_LEDS = 16;   // change to match your ring
 #endif
 
 const long    BAUD            = 9600;  // keep at 9600: faster can drop characters on the Nano
-const uint8_t RING_BRIGHTNESS = 80;    // 0..255
+const uint8_t RING_BRIGHTNESS = 150;   // 0..255, 150 is safe on USB power
 const uint8_t OLED_ADDR       = 0x3C;
 const uint8_t MAX_NAME        = 21;    // characters that fit on one OLED line at text size 1
 
