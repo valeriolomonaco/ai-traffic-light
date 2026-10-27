@@ -1,7 +1,8 @@
 # Build guide: from parts to a working prototype
 
-This guide takes you from an empty desk to a finished lamp on top of it. It assumes no electronics
-experience and needs no soldering. Plan on a weekend, split across a few short sessions.
+This guide takes you from an empty desk to a finished lamp on top of it: a flat 3D-printed box
+with a ring of light framing a small screen. It assumes no electronics experience and needs no
+soldering. Plan on a weekend, split across a few short sessions.
 
 ![The four states of the finished lamp](images/lamp-states.svg)
 
@@ -14,7 +15,7 @@ experience and needs no soldering. Plan on a weekend, split across a few short s
 | 4 | Connect and test the screen | 20 min |
 | 5 | Connect and test the LED ring | 20 min |
 | 6 | Connect the lamp to Claude Code | 30 min |
-| 7 | Build the enclosure | 1 to 2 hours |
+| 7 | Print and assemble the case | a few hours of printing, then 30 min |
 | 8 | Final checks: the prototype is done | 15 min |
 
 ---
@@ -53,7 +54,7 @@ A real ring at the same setting looks clearly yellow.
 | # | Part | Qty | Search for | Approx. price | Check before ordering |
 |---|---|---|---|---|---|
 | 1 | ESP32 development board | 1 | "ESP32 DevKit V1" or "ESP32 NodeMCU", CP2102 USB chip | 11 EUR | **Pins already soldered.** Avoid "unverlötet" or "unsoldered". |
-| 2 | WS2812B LED ring, 12 LEDs, about 50 mm | 1 | "WS2812B ring 12 LED" | 6 EUR | **Sold with wires attached**, ideally ending in female Dupont plugs. See the note below. |
+| 2 | WS2812B LED ring, 12 LEDs, about 50 mm | 1 | "WS2812B ring 12 LED" | 6 EUR | **Sold with wires attached**, ideally ending in female Dupont plugs. See the note below. **Hole of 35 mm or more**, so the screen shows through it. |
 | 3 | OLED screen 0.96 inch, 128x64, SSD1306, I2C | 1 | "0.96 OLED SSD1306 I2C 128x64" | 8 EUR | **4 pins** labelled GND, VCC, SCL, SDA. Not the 7-pin SPI version. |
 | 4 | Jumper wires, female to female | 1 set | "jumper wire female female 20 cm" (F2F) | 7 EUR | 10 to 20 cm long. A mixed set (F-F, M-F, M-M) is fine. |
 | 5 | USB cable | 1 | micro USB or USB-C, to match the board | 3 to 5 EUR | **Data cable**, not charge-only. A cable from an old phone usually works. |
@@ -104,21 +105,28 @@ Pick one of these:
 | Beginner starter kit for ESP32 or Arduino | Extra parts and tutorials for a first evening of practice. | 20 to 30 EUR |
 | Small multimeter | Checks a cable or a connection when something does not light. | 10 to 15 EUR |
 
-### Enclosure material
+### The case
 
-Choose one for the first prototype. You can upgrade later.
+The case is 3D-printed in four parts: three in dark plastic and the glowing diffuser ring in white.
+The files are ready in [enclosure/](../enclosure/).
 
-| Option | Material | Approx. price |
+| Option | How | Approx. price |
 |---|---|---|
-| Glass jar | A frosted glass jar, or a clear one plus frosted window film or baking paper inside | 0 to 5 EUR |
-| Lamp shade | A small paper or plastic shade, for example from IKEA | 5 to 10 EUR |
-| Wooden box | A small craft box plus a frosted acrylic sheet on top | 10 to 15 EUR |
+| Fab lab | University or city fab labs print parts like these, often for the cost of the plastic | 0 to 10 EUR |
+| Online print service | Upload the four STL files, choose PLA, with the diffuser in white | 10 to 20 EUR |
+| Your own printer | Any basic printer can print them, no supports needed | a few EUR of plastic |
 
-Plus double-sided foam tape or small Velcro dots to hold the parts in place.
+You also need double-sided foam tape for the board and the screen.
+
+If you want to test before printing, a frosted glass jar over the ring makes a quick temporary cover.
 
 ### Tools
 
-None are required. Scissors and a craft knife help for the enclosure.
+| Tool | Why | Approx. price |
+|---|---|---|
+| Digital caliper | Measures your ring, screen and board before printing, so the case fits | 10 EUR |
+
+Nothing else is required.
 
 ### If you choose the Arduino Nano instead
 
@@ -252,20 +260,33 @@ Follow [host/README.md](../host/README.md). In short:
 
 ---
 
-## Stage 7. Build the enclosure
+## Stage 7. Print and assemble the case
 
-1. **Plan the layout.** The ring goes at the top or centre, facing the translucent cover. The screen
-   goes where you can read it, behind a small window or simply outside the cover at the base. The board
-   sits at the bottom with its USB socket towards the back.
-2. **Make the cable exit.** Cut a small notch or hole for the USB cable at the back of the base.
-3. **Fix the parts.** Use double-sided foam tape or Velcro dots on the back of the board, ring and
-   screen. Foam tape also keeps the metal pins away from anything conductive.
-4. **Diffuse the light.** Leave 2 to 5 cm between the ring and the cover. More distance gives a softer,
-   more even glow. If you still see individual dots, add a layer of baking paper or tracing paper inside
-   the cover.
-5. **Tidy the wires.** Coil the extra length loosely and hold it with a small cable tie. Do not pull on
-   the jumpers: push-on connections can slip off.
-6. **Check the heat.** At this brightness nothing gets more than lukewarm, so paper and wood are safe.
+The finished box is 97 mm long, 62 mm deep and 33 mm tall. The ring and screen sit on the left of
+the top face. The board lies inside on the right, upside down with its pins pointing up.
+
+![Exploded view of the case](../enclosure/previews/exploded.png)
+
+![Inside the flat box](images/case-section.svg)
+
+1. **Measure your parts.** Use the caliper on the ring, the screen and the board, and compare with the
+   typical sizes in [enclosure/README.md](../enclosure/README.md). If any differ by more than half a
+   millimetre, enter yours in the case script and rebuild the files. The script checks that everything
+   still fits.
+2. **Print the four parts**: tray, holder and top in dark plastic, the diffuser in white. Print settings
+   and orientation are in [enclosure/README.md](../enclosure/README.md#printing).
+3. **Lay the board in the tray**, upside down between the two rails, chip side down and pins up, USB
+   socket at the notch in the back wall. The jumper wires stay plugged in from stage 5.
+4. **Tape the screen under the holder**, glass facing up into the window, pins towards the back.
+5. **Put the ring on the holder** around the tube, LEDs up, its wires going down through the slot that
+   faces the board.
+6. **Set the holder on the three posts**, drop the diffuser into the top, and press the top onto the tray.
+   The holder's tube pushes the diffuser up against the top and holds everything in place.
+7. **Plug in the USB cable** and send `G test` from the Serial Monitor. The ring of light should glow
+   green around the word `WORKING`.
+
+Do not pull on the jumper wires while closing the box: push-on connections can slip off. At this
+brightness nothing gets more than lukewarm, so plastic is safe.
 
 ---
 
@@ -278,6 +299,7 @@ Follow [host/README.md](../host/README.md). In short:
 - [ ] Unplugging the lamp does not disturb Claude Code, and plugging it back in works again.
 - [ ] Nothing rattles loose when you move the lamp.
 - [ ] The glow is soft and even, with no harsh dots.
+- [ ] The text sits in the middle of the ring and is not washed out by the light.
 
 ---
 
@@ -285,9 +307,9 @@ Follow [host/README.md](../host/README.md). In short:
 
 | Version | Change | Effort |
 |---|---|---|
-| v1 Prototype | This guide: jumper wires, jar or shade. | a weekend |
-| v2 Tidy | Shorter jumpers cut to length, or a small solderless terminal board. Lower the boot delay to 0 if your board does not reset, see [host/README.md](../host/README.md). | an evening |
-| v3 Custom case | A 3D-printed case with a window for the screen and a diffuser on top, from a fab lab or an online print service for a few euros. | a few hours of design |
+| v1 Prototype | This guide: jumper wires in the printed flat box. | a weekend |
+| v2 Tidy | Shorter jumpers cut to length. Lower the boot delay to 0 if your board does not reset, see [host/README.md](../host/README.md). | an evening |
+| v3 Thinner | Wires soldered straight onto the board and screen, so the box can shrink from 33 mm to about 21 mm. Set `PLUG_H` to 3 and `DIFFUSE_GAP` to 3 in the case script. | an afternoon, needs soldering |
 | v4 Wireless | The ESP32 receives the state over WiFi through an MQTT broker, so the lamp can sit anywhere. See the roadmap in [BLUEPRINT.md](BLUEPRINT.md#8-roadmap-wireless-lamp-over-mqtt-esp32-only). | about two hours |
 
 Selling devices, rather than sharing the design, would bring EU product rules such as CE marking,

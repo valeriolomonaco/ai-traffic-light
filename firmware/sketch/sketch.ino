@@ -70,15 +70,21 @@ void baseColor(char s, uint8_t &r, uint8_t &g, uint8_t &b) {
   }
 }
 
-void printDuration(unsigned long secs) {
-  if (secs < 60) {
-    oled.print(secs); oled.print("s");
-  } else if (secs < 3600) {
-    oled.print(secs / 60); oled.print("m");
-  } else {
-    oled.print(secs / 3600); oled.print("h ");
-    oled.print((secs % 3600) / 60); oled.print("m");
-  }
+// Formats a duration as "45s", "12m" or "2h 5m".
+void formatDuration(unsigned long secs, char *out, size_t len) {
+  if (secs < 60)        snprintf(out, len, "for %lus", secs);
+  else if (secs < 3600) snprintf(out, len, "for %lum", secs / 60);
+  else                  snprintf(out, len, "for %luh %lum", secs / 3600, (secs % 3600) / 60);
+}
+
+// Prints one line centred horizontally. The built-in font is 6 pixels wide per character
+// at size 1, so the text sits in the middle of the round opening of the LED ring.
+void printCentered(const char *text, int16_t y, uint8_t size) {
+  int16_t w = (int16_t)strlen(text) * 6 * size;
+  int16_t x = (128 - w) / 2;
+  oled.setTextSize(size);
+  oled.setCursor(x < 0 ? 0 : x, y);
+  oled.print(text);
 }
 
 void drawScreen() {
@@ -86,18 +92,13 @@ void drawScreen() {
   oled.clearDisplay();
   oled.setTextColor(SSD1306_WHITE);
 
-  oled.setTextSize(2);
-  oled.setCursor(0, 4);
-  oled.print(stateLabel(state));
-
-  oled.setTextSize(1);
-  oled.setCursor(0, 32);
-  oled.print(project);
+  printCentered(stateLabel(state), 10, 2);
+  printCentered(project, 34, 1);
 
   if (state != 'O') {
-    oled.setCursor(0, 52);
-    oled.print("for ");
-    printDuration((millis() - stateSince) / 1000UL);
+    char buf[20];
+    formatDuration((millis() - stateSince) / 1000UL, buf, sizeof(buf));
+    printCentered(buf, 48, 1);
   }
   oled.display();
 }

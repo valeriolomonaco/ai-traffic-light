@@ -1,9 +1,12 @@
 # AI Traffic Light
 
 A small desk lamp that shows what Claude Code is doing, so you can look away from the screen
-and still know when it needs you.
+and still know when it needs you. It is a flat box, 97 x 62 x 33 mm, with a ring of light on top
+framing a small screen.
 
-![The four states of the lamp](docs/images/lamp-states.svg)
+![The four states of the lamp, seen from above](docs/images/lamp-states.svg)
+
+![The 3D-printed case](enclosure/previews/assembled.png)
 
 | Lamp | Screen | Meaning |
 |---|---|---|
@@ -15,8 +18,8 @@ and still know when it needs you.
 The screen also shows the project name and how long the lamp has been in its current state.
 
 It is built from an Arduino-compatible board (Arduino Nano or ESP32), a WS2812B LED ring and a
-0.96 inch SSD1306 OLED screen, all connected with push-on jumper wires. No soldering is needed
-for the board and the screen.
+0.96 inch SSD1306 OLED screen, all connected with push-on jumper wires, inside a 3D-printed case.
+No soldering is needed for the board and the screen.
 
 > This is a personal hobby project. It is not affiliated with or endorsed by Anthropic or Arduino.
 
@@ -38,6 +41,7 @@ such as `G athlete paper` to the board over USB. The board changes the ring colo
 | [docs/BLUEPRINT.md](docs/BLUEPRINT.md) | Full blueprint: design, parts list, wiring, enclosure, timeline, roadmap. |
 | [firmware/sketch/sketch.ino](firmware/sketch/sketch.ino) | Board firmware. The same file runs on the Nano and the ESP32. |
 | [simulation/](simulation/) | Ready Wokwi projects for the Nano and the ESP32. |
+| [enclosure/](enclosure/) | The 3D-printed case: ready STL files and the script that rebuilds them from your part sizes. |
 | [host/claude_light.py](host/claude_light.py) | Python script that the hooks call to send the state. |
 | [host/hooks-example.json](host/hooks-example.json) | Hook settings to paste into Claude Code. |
 
@@ -51,6 +55,7 @@ For the full walk-through from buying parts to a finished prototype, follow
 3. **Flash the board.** Open `firmware/sketch` in the Arduino IDE, install the three libraries listed
    in [simulation/libraries.txt](simulation/libraries.txt), pick your board and upload.
 4. **Connect Claude Code.** Install the host script and the hooks, see [host/README.md](host/README.md).
+5. **Print the case.** Measure your parts, then print the four STL files, see [enclosure/README.md](enclosure/README.md).
 
 ## License
 

@@ -4,8 +4,11 @@ This is the design. For step-by-step assembly instructions, see [BUILD_GUIDE.md]
 
 ## 1. Concept
 
-A status lamp for Claude Code that sits on the desk. A ring of coloured LEDs glows behind a
-translucent cover, and a small screen shows the state in words plus the project name.
+A status lamp for Claude Code that sits on the desk: a flat dark box, 97 x 62 x 33 mm. On its top
+face a ring of coloured light frames a small screen. The screen sits just behind the LED ring and is
+seen through the ring's hole, and it shows the state in words plus the project name.
+
+![The four states of the lamp, seen from above](images/lamp-states.svg)
 
 | Letter | State | Ring | Screen | Claude Code moment |
 |---|---|---|---|---|
@@ -23,7 +26,9 @@ Two design rules make it look good rather than like a tangle of wires:
 - **No soldering.** Use a board and modules sold with pre-soldered headers and connect them with
   female-to-female jumper wires that simply push on.
 - **Diffuse the light.** Bare LEDs are small harsh points. Behind something translucent they turn
-  into a soft glow that looks deliberate.
+  into a soft glow that looks deliberate. Here a thin white plastic ring on the top face does that.
+- **Only as deep as needed.** The board lies beside the ring, not under it, so the box only has to
+  be as deep as the jumper plugs.
 
 ## 2. Shopping list
 
@@ -33,12 +38,12 @@ Amazon.it. The same parts cost about half on AliExpress, with two to four weeks 
 | # | Part | Search for | Approx. price |
 |---|---|---|---|
 | 1 | ESP32 board | "ESP32 NodeMCU" or "ESP32 DevKit V1", CP2102 USB chip, **with soldered pins** | 11 EUR |
-| 2 | LED ring | "WS2812B LED ring", 12 LEDs, 50 mm | 6 EUR |
+| 2 | LED ring | "WS2812B LED ring", 12 LEDs, 50 mm outside, **hole of 35 mm or more** | 6 EUR |
 | 3 | OLED screen | "0.96 inch OLED SSD1306 I2C 128x64" | 8 EUR |
 | 4 | Jumper wires | "jumper wire female to female" (F2F) | 7 EUR |
 | 5 | USB cable | micro USB or USB C to match the board, **must be a data cable** | a few EUR |
 
-Total about 30 to 35 EUR.
+Total about 30 to 35 EUR, plus 10 to 20 EUR to have the case printed if you have no printer.
 
 Points to check before buying:
 
@@ -118,14 +123,38 @@ lower that wait once you have checked that your board does not reset, see
 
 ## 6. Enclosure
 
-Simple options, in rising order of effort:
+A 3D-printed flat box in four parts, all in [enclosure/](../enclosure/). The STL files are ready to
+print, and [enclosure/make_case.py](../enclosure/make_case.py) rebuilds them from your own part sizes.
 
-1. A frosted glass jar over the ring.
-2. A small paper or plastic lamp shade, such as the inexpensive IKEA ones.
-3. A wooden box with a frosted acrylic top and a window for the screen.
-4. A custom 3D-printed case, from a university fab lab or an online print service for a few euros.
+![Assembled case](../enclosure/previews/assembled.png)
 
-The electronics hide inside, with only the USB cable coming out.
+![Inside the flat box](images/case-section.svg)
+
+| Part | Colour | Role |
+|---|---|---|
+| Tray | dark | Floor, walls, rails for the board, three posts, USB notch at the back |
+| Holder | dark | Screen underneath, LED ring on top, a light shield tube between them |
+| Top | dark | Top plate with a round hole |
+| Diffuser | white | The glowing ring, it sits in the hole of the top |
+
+How it fits together:
+
+- **The board lies upside down** on the floor, chip side down and pins up, so the jumper plugs push
+  on from above and the USB socket faces a notch in the back wall.
+- **The screen is taped under the holder**, its glass in a window, and is seen through the ring.
+- **The light shield**, a short tube between the ring and the screen, keeps the LED glow off the text.
+- **The top presses down** on the tube, which holds the diffuser, ring, holder and screen in place.
+  Nothing needs screws or glue.
+
+The depth comes from the jumper plugs, which stand 14 mm tall on the pins. About 33 mm is close to
+the minimum without soldering. Wires soldered straight onto the board would allow about 21 mm.
+
+Measure the real parts before printing: rings, screens and boards vary by a few millimetres. The
+script checks that nothing collides after you enter your sizes, see
+[enclosure/README.md](../enclosure/README.md).
+
+Without a printer, a frosted glass jar over the ring works as a quick first cover, with the screen
+beside it.
 
 ## 7. Timeline for a first build
 
@@ -133,7 +162,8 @@ The electronics hide inside, with only the USB cable coming out.
 |---|---|
 | One evening | Install the Arduino IDE, make an LED blink with the built-in examples. |
 | One afternoon | Wire the ring and the screen, flash the sketch, connect the hooks. |
-| An hour or two | Build the enclosure. |
+| A few hours, mostly waiting | Print the four case parts, or collect them from a print service. |
+| Half an hour | Assemble the case. |
 
 Before buying anything, the whole circuit runs in the free Wokwi simulator, see
 [simulation/README.md](../simulation/README.md).
