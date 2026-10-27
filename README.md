@@ -1,8 +1,14 @@
 # AI Traffic Light
 
-A small desk lamp that shows what Claude Code is doing, so you can look away from the screen
-and still know when it needs you. It is a flat box, 97 x 62 x 33 mm, with a ring of light on top
-framing a small screen.
+When you multitask with AI, for example with Claude Code running in a few projects while you do
+something else, it is easy to lose track of which session is still working and which one finished
+or is waiting for you, and every minute it sits idle wastes your time and your subscription's
+usage window. This desk lamp shows it at a glance: **green** while the AI works, **yellow** when it
+needs your answer, **red** when it has finished and it is your turn.
+
+It works with any AI tool that can run a command when its state changes. This repository includes
+the ready setup for Claude Code. The lamp is a flat box, 97 x 62 x 33 mm, with a ring of light on
+top framing a small screen that names the project.
 
 ![The four states of the lamp, seen from above](docs/images/lamp-states.svg)
 
