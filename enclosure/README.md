@@ -18,7 +18,9 @@ the ring inside, so the box is only as deep as the jumper plugs need.
 | Top | [stl/top.stl](stl/top.stl) | dark | Top plate with a round hole, clicks into the tray |
 | Diffuser | [stl/diffuser.stl](stl/diffuser.stl) | **white or natural** | The glowing ring. It drops into the hole of the top |
 
-With normal infill the four parts use about 25 to 35 g of plastic. The dark parts can be black or dark grey PLA. The diffuser should be
+The four parts use about 40 to 50 g of plastic. The walls and floor are only 2 mm thick, so they
+print almost solid whatever the infill. With the electronics inside, the finished lamp weighs about
+75 to 85 g. The dark parts can be black or dark grey PLA. The diffuser should be
 white or "natural" (translucent) PLA or PETG, so the light shines through it.
 
 ## Before printing: measure your parts
