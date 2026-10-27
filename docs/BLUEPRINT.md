@@ -1,5 +1,7 @@
 # Blueprint
 
+This is the design. For step-by-step assembly instructions, see [BUILD_GUIDE.md](BUILD_GUIDE.md).
+
 ## 1. Concept
 
 A status lamp for Claude Code that sits on the desk. A ring of coloured LEDs glows behind a

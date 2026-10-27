@@ -32,13 +32,17 @@ such as `G athlete paper` to the board over USB. The board changes the ring colo
 
 | Path | Content |
 |---|---|
-| [docs/BLUEPRINT.md](docs/BLUEPRINT.md) | Full blueprint: parts list, wiring, enclosure, timeline, roadmap. |
+| [docs/BUILD_GUIDE.md](docs/BUILD_GUIDE.md) | Step-by-step build: what to buy, assembly, testing, enclosure, troubleshooting. |
+| [docs/BLUEPRINT.md](docs/BLUEPRINT.md) | Full blueprint: design, parts list, wiring, enclosure, timeline, roadmap. |
 | [firmware/sketch/sketch.ino](firmware/sketch/sketch.ino) | Board firmware. The same file runs on the Nano and the ESP32. |
 | [simulation/](simulation/) | Ready Wokwi projects for the Nano and the ESP32. |
 | [host/claude_light.py](host/claude_light.py) | Python script that the hooks call to send the state. |
 | [host/hooks-example.json](host/hooks-example.json) | Hook settings to paste into Claude Code. |
 
 ## Quick start
+
+For the full walk-through from buying parts to a finished prototype, follow
+[docs/BUILD_GUIDE.md](docs/BUILD_GUIDE.md). The short version:
 
 1. **Try it in the simulator.** Follow [simulation/README.md](simulation/README.md). No hardware or account needed.
 2. **Buy the parts.** See the shopping list in [docs/BLUEPRINT.md](docs/BLUEPRINT.md#2-shopping-list).
