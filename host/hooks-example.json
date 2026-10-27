@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [ { "type": "command", "command": "python \"PATH/TO/ai-traffic-light/host/claude_light.py\" R" } ] }
+    ],
+    "UserPromptSubmit": [
+      { "hooks": [ { "type": "command", "command": "python \"PATH/TO/ai-traffic-light/host/claude_light.py\" G" } ] }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt|elicitation_dialog",
+        "hooks": [ { "type": "command", "command": "python \"PATH/TO/ai-traffic-light/host/claude_light.py\" Y" } ]
+      }
+    ],
+    "Stop": [
+      { "hooks": [ { "type": "command", "command": "python \"PATH/TO/ai-traffic-light/host/claude_light.py\" R" } ] }
+    ],
+    "SessionEnd": [
+      { "hooks": [ { "type": "command", "command": "python \"PATH/TO/ai-traffic-light/host/claude_light.py\" O" } ] }
+    ]
+  }
+}

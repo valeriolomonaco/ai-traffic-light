@@ -1,0 +1,4 @@
+# Wokwi library list: create a file named libraries.txt in the Wokwi project and paste this.
+Adafruit NeoPixel
+Adafruit GFX Library
+Adafruit SSD1306
