@@ -10,7 +10,7 @@ It works with any AI tool that can run a command when its state changes. This re
 the ready setup for Claude Code. The lamp is a flat box, 97 x 62 x 33 mm, with a ring of light on
 top framing a small screen that names the project.
 
-![The four states of the lamp, seen from above](docs/images/lamp-states.svg)
+![The four states of the lamp, seen from above](docs/images/lamp-states.png)
 
 ![The 3D-printed case](enclosure/previews/assembled.png)
 

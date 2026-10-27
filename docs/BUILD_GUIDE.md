@@ -4,7 +4,7 @@ This guide takes you from an empty desk to a finished lamp on top of it: a flat 
 with a ring of light framing a small screen. It assumes no electronics experience and needs no
 soldering. Plan on a weekend, split across a few short sessions.
 
-![The four states of the finished lamp](images/lamp-states.svg)
+![The four states of the finished lamp](images/lamp-states.png)
 
 | Stage | What you do | Time |
 |---|---|---|
@@ -69,23 +69,23 @@ printed pin labels are always the same.
 
 **1. ESP32 DevKit V1 board.** About 5 cm long, with 15 pins on each side and a USB socket at one end.
 
-![ESP32 DevKit V1](images/esp32-devkit-v1.svg)
+![ESP32 DevKit V1](images/esp32-devkit-v1.png)
 
 **2. WS2812B LED ring.** A flat ring of 12 small square LEDs, with 4 pads on the back.
 
-![WS2812B LED ring](images/led-ring.svg)
+![WS2812B LED ring](images/led-ring.png)
 
 **3. OLED screen.** About 2.7 cm wide, with 4 pins along the top edge.
 
-![SSD1306 OLED screen](images/oled-ssd1306.svg)
+![SSD1306 OLED screen](images/oled-ssd1306.png)
 
 **4. Jumper wires.** Coloured wires with a black plastic socket at each end.
 
-![Female to female jumper wires](images/jumper-wires.svg)
+![Female to female jumper wires](images/jumper-wires.png)
 
 **5. USB cable.** It must carry data, not only power.
 
-![USB data cable](images/usb-cable.svg)
+![USB data cable](images/usb-cable.png)
 
 **The LED ring is the one part that may need soldering.** Most rings arrive with three bare metal pads.
 Pick one of these:
@@ -177,7 +177,7 @@ percentage starts, then let go.
 Here is the complete wiring you will have at the end of stage 5. This stage does the screen part, on
 the right of the drawing.
 
-![Complete wiring](images/wiring.svg)
+![Complete wiring](images/wiring.png)
 
 Connect 4 female-to-female jumpers from the screen to the board:
 
@@ -267,7 +267,7 @@ the top face. The board lies inside on the right, upside down with its pins poin
 
 ![Exploded view of the case](../enclosure/previews/exploded.png)
 
-![Inside the flat box](images/case-section.svg)
+![Inside the flat box](images/case-section.png)
 
 1. **Measure your parts.** Use the caliper on the ring, the screen and the board, and compare with the
    typical sizes in [enclosure/README.md](../enclosure/README.md). If any differ by more than half a

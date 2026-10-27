@@ -8,7 +8,7 @@ A status lamp for Claude Code that sits on the desk: a flat dark box, 97 x 62 x 
 face a ring of coloured light frames a small screen. The screen sits just behind the LED ring and is
 seen through the ring's hole, and it shows the state in words plus the project name.
 
-![The four states of the lamp, seen from above](images/lamp-states.svg)
+![The four states of the lamp, seen from above](images/lamp-states.png)
 
 | Letter | State | Ring | Screen | Claude Code moment |
 |---|---|---|---|---|
@@ -128,7 +128,7 @@ print, and [enclosure/make_case.py](../enclosure/make_case.py) rebuilds them fro
 
 ![Assembled case](../enclosure/previews/assembled.png)
 
-![Inside the flat box](images/case-section.svg)
+![Inside the flat box](images/case-section.png)
 
 | Part | Colour | Role |
 |---|---|---|
